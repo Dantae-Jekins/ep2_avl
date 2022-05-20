@@ -5,18 +5,10 @@
 #include "libs/j_binaryTree.h"
 #include "libs/jg_strings.h"
 
-// testar o uso das árvores binárias de busca simples
-// e também uma das suas versões balanceadas, a AVL.
-//
-// Recebe um número de amostras A e um número 
-// representando a quantidade de nós que serão
-// inseridos em ambas.
 
 #define QUANT_ERR \
   printf("\nQuantidade inválida de argumento \nuso: avl_test <amostras> <nós>\n Limite de 99 amostras e 999 nós.")
 
-#define THROW_ERR(a) \
-  printf("\n Erro cod.%d",a)
 
 #define PRINT(a, b) \
   printf("\n var.%d %d\n", a, b)
@@ -131,11 +123,9 @@ void fill_bst( bsTree *target, int amount)
   while (counter < amount)
   {
     int number = rand() % interval;
-
     // se não existe adicionamos
-    if ( !bst_Search( *target, number ) )
+    if (bst_Insert( target, number ) )
     {
-      bst_Insert(target, number);
       counter++;
     }
   }
